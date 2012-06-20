@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="helloJSF:war exploded">
+    <output-path>$PROJECT_DIR$/target/helloJSF</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="helloJSF/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="helloJSF" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.7" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.1.7" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:el-impl:2.2" />
+          <element id="library" level="project" name="Maven: javax.el:el-api:2.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

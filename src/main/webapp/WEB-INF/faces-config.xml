@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+  <navigation-rule>
+    <from-view-id>hello.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>goElsewhere</from-outcome>
+      <to-view-id>welcome.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>start.xhtml</from-view-id>
+    <navigation-case>
+      <from-action>#{pageController.processPage1}</from-action>
+      <from-outcome >success</from-outcome>
+      <to-view-id >page1.xhtml</to-view-id>
+      <redirect/>
+    </navigation-case>
+    <navigation-case>
+      <from-action >#{pageController.processPage2}</from-action>
+      <from-outcome >success</from-outcome>
+      <to-view-id>page2.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>start.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>payment</from-outcome>
+      <if>#{paymentController.orderQty &lt; 100}</if>
+      <to-view-id>conditional/toMuch.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>payment</from-outcome>
+      <if>#{!paymentController.registerCompleted}</if>
+      <to-view-id>payment.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>payment</from-outcome>
+      <to-view-id>conditional/default.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+</faces-config>
