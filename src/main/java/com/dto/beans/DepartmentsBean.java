@@ -26,7 +26,7 @@ import java.util.List;
 @SessionScoped
 public class DepartmentsBean implements Serializable {
 
-    @Resource(name = "java:/jdbc/orclDriver")
+    @Resource(name = "jdbc/HR")
     private DataSource ds;
 
     public List<Departments> getDepartmentsList() throws SQLException {
