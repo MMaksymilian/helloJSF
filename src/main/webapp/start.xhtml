@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
@@ -12,8 +13,18 @@
     <h2>This is start.xhtml</h2>
 
     <h:form>
-        <h:commandButton action="#{pageController.processPage1}" value="Page1"/>
-        <h:commandButton action="#{pageController.processPage2}" value="Page2"/>
+        <p:commandButton action="#{pageController.processPage1}" value="Page1 combobox HR departments"/>
+        <p:commandButton action="#{pageController.processPage2}" value="Page2">
+          <f:setPropertyActionListener value="35" target="#{buttonBean .number}"/>
+        </p:commandButton> 
+        <p:commandButton  action="page3.xhtml" value="Page3 JSF tags"/>
+        <h:link outcome="default">
+            <p:graphicImage value="/helloJSF/javax.faces.resource/link.png.jsf?ln=images"/>
+        </h:link>
+        <p:commandLink action="payment" value="go to payment">
+          <f:param name="parameter" value="value"/>
+        </p:commandLink>
+        <h:outputLink>Refresh</h:outputLink>
     </h:form>
 
     <h2>This is second form</h2>

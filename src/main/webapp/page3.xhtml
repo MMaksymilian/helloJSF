@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>tags with JSF 2.0</title>
+    <!--<script type="text/javascript" language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+
+    <h:outputScript type="text/javascript">
+        $(window).bind('beforeunload', function() {
+        return 'stop dont go';
+        });
+    </h:outputScript>
+
+</h:head>
+<h:body>
+    <h:outputFormat value="param0 : {0}, param : {1}">
+        <f:param value="Number1"/>
+        <f:param value="Number2"/>
+    </h:outputFormat>
+    <h:form>
+        <h:panelGrid columns="3">
+            Enter a number:
+            <h:inputText id="number" value="#{panelGridBean.number}" size="20" required="true" label="Numer">
+                <f:convertNumber minFractionDigits="2" currencyCode="PLN" />
+            </h:inputText>
+            <h:message for="number" style="color:#d1e4e4;"/>
+            Date :
+            <h:inputText id="date" value="#{panelGridBean.date}"
+                         size="20" required="true"
+                         label="Receipt Date" >
+
+                <f:convertDateTime pattern="d-M-yyyy" />
+            </h:inputText>
+            <h:message for="date" style=" color:#f9a885;" />
+        </h:panelGrid>
+        <p:commandButton value="Submit" action="#{pageController.processPage1}"/>
+    </h:form>
+</h:body>
+</html>
